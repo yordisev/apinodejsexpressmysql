@@ -4,6 +4,7 @@ var mysql = require('mysql')
 var app = express();
 
 app.use(express.json());
+
 // para iniciar el servidor es node app
 
 // establecemos los parametros de conexion
@@ -90,11 +91,11 @@ app.put('/api/articulos/:id', (req, res) => {
 
 // para eliminar un articulo en especifico
 app.delete('/api/articulos/:id', (req, res) => {
-    conexion.query('DELETE FROM articulos WHERE id = ?', [red.params.id], function(error, resultado) {
+    conexion.query('DELETE FROM articulos WHERE id = ?', [req.params.id], function(error, filas) {
         if (error) {
             throw error;
         } else {
-            res.send(resultado);
+            res.send(filas);
         }
     })
 })
