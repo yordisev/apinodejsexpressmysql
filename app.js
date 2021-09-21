@@ -1,9 +1,19 @@
-var express = require('express')
-var mysql = require('mysql')
+const { json } = require('express');
+var express = require('express');
+var mysql = require('mysql');
+var cors = require('cors');
 
 var app = express();
 
 app.use(express.json());
+app.use(cors());
+
+// descargar node js
+// npm init -y  para que nos cree el proyecto
+// npm install express --save
+// npm install mysql
+
+// npm install cors para evitar bloqueos en el navegador
 
 // para iniciar el servidor es node app
 
