@@ -49,8 +49,8 @@ app.get('/api/articulos/:id', (req, res) => {
         if (error) {
             throw error;
         } else {
-            // res.send(fila); para mostrar todos los datos de la fila seleccionada
-            res.send(fila[0].descripcion) // para mostrar solo una columna seleccionada
+            res.send(fila); // para mostrar todos los datos de la fila seleccionada
+           // res.send(fila[0].descripcion) // para mostrar solo una columna seleccionada
         }
     });
 });
@@ -88,6 +88,7 @@ app.put('/api/articulos/:id', (req, res) => {
     });
 });
 
+// para eliminar un articulo en especifico
 app.delete('/api/articulos/:id', (req, res) => {
     conexion.query('DELETE FROM articulos WHERE id = ?', [red.params.id], function(error, resultado) {
         if (error) {
